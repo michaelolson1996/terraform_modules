@@ -1,0 +1,23 @@
+#cloud-config
+
+ssh_pwauth: false
+disable_root: true
+
+package_update: true
+package_upgrade: true
+
+users:
+  - name: ansible
+    groups: wheel
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ${ssh_key}
+
+write_files:
+  - path: /etc/ansible/facts.d/bootstrap.fact
+    permissions: '0644'
+    content: |
+      {
+        "lfs_disk": "${lfs_disk}"
+      }
