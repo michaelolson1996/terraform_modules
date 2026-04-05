@@ -1,5 +1,6 @@
 # Local .terraform directories (matches any depth)
 **/.terraform/*
+**/.terraform.lock*
 
 # .tfstate files (matches any depth)
 **/*.tfstate
@@ -21,3 +22,5 @@
 # Terraform CLI configuration
 .terraformrc
 terraform.rc
+
+**/tfplan
